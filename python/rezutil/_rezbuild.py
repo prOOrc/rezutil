@@ -151,7 +151,8 @@ def clean(root, attempt=0):
             if attempt == 1:
                 tell("Editing file permissions..", 6)
                 os.chmod(abspath, stat.S_IWRITE | stat.S_IREAD)
-
+            if os.path.basename(abspath) == "build.rxt":
+                continue
             os.remove(abspath)
 
 
